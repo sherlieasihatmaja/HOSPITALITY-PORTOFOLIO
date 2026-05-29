@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sherlie Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0b0b0b;
+      color:#f5f5f5;
+      font-family:'Montserrat', sans-serif;
+      overflow-x:hidden;
+    }
+
+    header{
+      min-height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.8)),
+      url('https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?q=80&w=1600&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      text-align:center;
+    }
+
+    .hero{
+      max-width:900px;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .hero img{
+      width:220px;
+      height:220px;
+      object-fit:cover;
+      border-radius:50%;
+      border:4px solid #d4af37;
+      box-shadow:0 0 40px rgba(212,175,55,0.4);
+      margin-bottom:35px;
+    }
+
+    .luxury-text{
+      color:#d4af37;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-size:14px;
+      margin-bottom:15px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:82px;
+      font-weight:700;
+      letter-spacing:2px;
+      margin-bottom:10px;
+    }
+
+    .hero h2{
+      font-size:26px;
+      font-weight:300;
+      color:#dddddd;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      color:#d6d6d6;
+      font-size:18px;
+      line-height:1.9;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 40px;
+      border:1px solid #d4af37;
+      color:#d4af37;
+      text-decoration:none;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      transition:0.4s;
+      font-size:14px;
+    }
+
+    .btn:hover{
+      background:#d4af37;
+      color:black;
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title p{
+      color:#d4af37;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      font-size:14px;
+    }
+
+    .section-title h2{
+      font-family:'Cormorant Garamond', serif;
+      font-size:60px;
+      font-weight:600;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+      gap:40px;
+    }
+
+    .card{
+      background:#111111;
+      border:1px solid rgba(212,175,55,0.15);
+      padding:40px;
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#d4af37;
+      box-shadow:0 10px 30px rgba(212,175,55,0.15);
+    }
+
+    .card h3{
+      font-family:'Cormorant Garamond', serif;
+      font-size:34px;
+      color:#d4af37;
+      margin-bottom:20px;
+    }
+
+    .card p{
+      line-height:1.9;
+      color:#cccccc;
+    }
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .skill-box{
+      background:#111111;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:30px;
+      text-align:center;
+      transition:0.4s;
+    }
+
+    .skill-box:hover{
+      border-color:#d4af37;
+      transform:translateY(-5px);
+    }
+
+    .skill-box h4{
+      color:#d4af37;
+      margin-bottom:10px;
+      font-size:20px;
+    }
+
+    .experience{
+      display:grid;
+      gap:30px;
+    }
+
+    .exp-item{
+      background:#111111;
+      padding:40px;
+      border-left:3px solid #d4af37;
+      transition:0.4s;
+    }
+
+    .exp-item:hover{
+      transform:translateX(10px);
+    }
+
+    .exp-item h3{
+      color:#d4af37;
+      font-size:28px;
+      margin-bottom:15px;
+      font-family:'Cormorant Garamond', serif;
+    }
+
+    .contact-box{
+      background:#111111;
+      text-align:center;
+      padding:60px 30px;
+      border:1px solid rgba(212,175,55,0.15);
+    }
+
+    .contact-box p{
+      margin-bottom:15px;
+      font-size:18px;
+      color:#dddddd;
+    }
+
+    footer{
+      padding:30px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#888;
+      font-size:14px;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+      h1{
+        font-size:50px;
+      }
+
+      .section-title h2{
+        font-size:40px;
+      }
+
+      .hero img{
+        width:170px;
+        height:170px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+
+    <!-- GANTI FOTO DI SINI -->
+    <img src="foto-sherlie.jpg" alt="Sherlie Photo">
+
+    <div class="luxury-text">Hospitality Portfolio</div>
+
+    <h1>SHERLIE ASIH ATMAJA</h1>
+
+    <h2>Hospitality Professional</h2>
+
+    <p>
+      Dedicated hospitality professional with experience in Front Office,
+      Housekeeping, Guest Service, F&B Service, Hospitality Operations.
+      Passionate about delivering elegant guest experiences with professionalism,
+      attention to detail, and world-class service standards.
+    </p>
+
+    <a href="#contact" class="btn">Contact Me</a>
+
+  </div>
+</header>
+
+<section>
+  <div class="section-title">
+    <p>Introduction</p>
+    <h2>About Me</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="card">
+      <h3>Professional Profile</h3>
+      <p>
+        Experienced in hospitality service, guest handling, reception,
+        housekeeping operations, and customer-focused environments.
+        Strong communication skills, teamwork, adaptability, and commitment
+        to service excellence.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Education & Training</h3>
+      <p>
+        • Hospitality Training – PPKD Jakarta Pusat<br><br>
+        • Front Office & Housekeeping Focus<br><br>
+        • BNSP Certified Hospitality Training<br><br>
+        • Additional Experience in Manufacturing & Quality Control
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <p>Expertise</p>
+    <h2>Professional Skills</h2>
+  </div>
+
+  <div class="skills">
+
+    <div class="skill-box">
+      <h4>Front Office</h4>
+      <p>Guest handling & check-in service</p>
+    </div>
+
+    <div class="skill-box">
+      <h4>Housekeeping</h4>
+      <p>Room preparation & cleanliness standards</p>
+    </div>
+
+    <div class="skill-box">
+      <h4>F&B Service</h4>
+      <p>Restaurant & guest dining experience</p>
+    </div>
+
+    <div class="skill-box">
+      <h4>Customer Service</h4>
+      <p>Professional guest communication</p>
+    </div>
+
+    <div class="skill-box">
+      <h4>Quality Control</h4>
+      <p>Attention to detail & standards</p>
+    </div>
+
+    <div class="skill-box">
+      <h4>Teamwork</h4>
+      <p>Adaptable in fast-paced environments</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <p>Career Journey</p>
+    <h2>Experience</h2>
+  </div>
+
+  <div class="experience">
+
+    <div class="exp-item">
+      <h3>Front Office & Housekeeping – PT Karang Mas Sejahtera</h3>
+      <p>
+        Assisted hotel guests professionally, maintained hospitality standards,
+        handled guest requests, and supported room operations to ensure excellent service.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <h3>Receptionist – PT Modena Centro Indonesia</h3>
+      <p>
+        Managed reception operations, welcomed visitors,
+        and provided administrative support with professionalism.
+      </p>
+    </div>
+
+    <div class="exp-item">
+      <h3>Packing & Quality Control – PT Sinergi Inti Plastindo</h3>
+      <p>
+        Performed product inspection, packaging, and shipment preparation
+        while maintaining quality standards and efficiency.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <p>Get In Touch</p>
+    <h2>Contact</h2>
+  </div>
+
+  <div class="contact-box">
+    <p>📍 Jakarta, Indonesia</p>
+    <p>📧 sherlieasihatmaja2@gmail.com</p>
+    <p>📱 +62 819-1010-6058</p>
+    <p>🌍 Available for International Hospitality Opportunities</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 SHERLIE ASIH ATMAJA — Hospitality Portfolio
+</footer>
+
+</body>
+</html>
